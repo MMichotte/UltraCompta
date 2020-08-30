@@ -6,3 +6,4 @@ Size: 975 g
 Quantity: 22
 Unit price: 4.85
 Currency: euro
+Vat: 6%
