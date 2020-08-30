@@ -1,0 +1,9 @@
+Order number: GDE950
+Client: Kwatta
+Client id: C-9844
+Item name: Pâte à tartiner
+Size: 500 g
+Quantity: 3
+Unit price: 3.25
+Currency: euro
+Vat: 6%
