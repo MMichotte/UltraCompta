@@ -53,8 +53,10 @@ namespace UltraCompta.Web.Controllers
 
             uprice = uprice.Replace('.', ',');
 
-            invoice += "<tr><td>" + iname + "</td><td>" + size + "</td><td>" + quant + "</td><td>" + uprice + " " + cur + "</td><td>" + tax.Replace("%", "&percnt;") + "</td><td>" +
-                       ((Convert.ToDouble(uprice) + Convert.ToDouble(uprice) * Convert.ToDouble(tax.Replace("%", "")) / 100) * Convert.ToInt32(quant)).ToString("F") + " " + cur + "</td></tr>";
+            invoice += "<tr><td>" + iname + "</td><td>" + size + "</td><td>" + quant + "</td><td>" + uprice + " " + cur + "</td><td>" + tax.Replace("%", "&percnt;") + "</td><td>";
+            var taxD = Convert.ToDouble(tax.Replace("%", ""));
+            invoice += ((Convert.ToDouble(uprice) + Convert.ToDouble(uprice) * (DatabaseAccess.GetCustomerCountry(id) == "BE" ? taxD : 0) / 100) * Convert.ToInt32(quant)).ToString("F");
+            invoice += " " + cur + "</td></tr>";
             
             if (input.Contains("Item name2"))
             {
@@ -76,7 +78,7 @@ namespace UltraCompta.Web.Controllers
                            ((Convert.ToDouble(uprice2) + Convert.ToDouble(uprice2) * Convert.ToDouble(tax2.Replace("%", "")) / 100) * Convert.ToInt32(quant2)).ToString("F") + " " + cur2 + "</td></tr>";
             }
 
-            DatabaseConnection.StoreInvoice(invoice);
+            DatabaseAccess.StoreInvoice(invoice);
 
             return Content(invoice + "</table></html>", "text/html");
         }

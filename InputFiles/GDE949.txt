@@ -3,7 +3,7 @@ Client: Ferrero
 Client id: C-9843
 Item name: Nutella
 Size: 975 g
-Quantity: 22
+Quantity: 10
 Unit price: 4.85
 Currency: euro
 Vat: 6%
