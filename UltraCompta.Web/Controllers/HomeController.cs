@@ -26,14 +26,14 @@ namespace UltraCompta.Web.Controllers
         public IActionResult GenerateInvoice(string orderReference)
         {
             string input = System.IO.File.ReadAllText("C:/Dev/UltraCompta/InputFiles/" + orderReference + ".txt");
-            var name = input.Split("\r\n", StringSplitOptions.None)[1].Substring(8);
-            var id = input.Split("\r\n", StringSplitOptions.None)[2].Substring(11);
-            var iname = input.Split("\r\n", StringSplitOptions.None)[3].Substring(11);
-            var size = input.Split("\r\n", StringSplitOptions.None)[4].Substring(6);
-            var quant = input.Split("\r\n", StringSplitOptions.None)[5].Substring(10);
-            var uprice = input.Split("\r\n", StringSplitOptions.None)[6].Substring(12);
-            var cur = input.Split("\r\n", StringSplitOptions.None)[7].Substring(10);
-            var tax = input.Split("\r\n", StringSplitOptions.None)[8].Substring(5);
+            string name = input.Split("\r\n", StringSplitOptions.None)[1].Substring(8);
+            string id = input.Split("\r\n", StringSplitOptions.None)[2].Substring(11);
+            string iname = input.Split("\r\n", StringSplitOptions.None)[3].Substring(11);
+            string size = input.Split("\r\n", StringSplitOptions.None)[4].Substring(6);
+            string quant = input.Split("\r\n", StringSplitOptions.None)[5].Substring(10);
+            string uprice = input.Split("\r\n", StringSplitOptions.None)[6].Substring(12);
+            string cur = input.Split("\r\n", StringSplitOptions.None)[7].Substring(10);
+            string tax = input.Split("\r\n", StringSplitOptions.None)[8].Substring(5);
 
             if (cur == "euro")
             {
@@ -42,9 +42,9 @@ namespace UltraCompta.Web.Controllers
 
             uprice = uprice.Replace('.', ',');
 
-            return Content("<html><h1>Invoice " + orderReference + "</h1><p>Client name: " + name + "</p><p>Client id: " + id + 
+            return Content("<html><style>table {border: 1px solid black;} tr:first-of-type {font-weight:bold;} td { padding: 5px;}</style><h1>Invoice " + orderReference + "</h1><p>Client name: " + name + "</p><p>Client id: " + id + 
                            "</p><table><tr><td>Description</td><td>Size</td><td>Quantity</td><td>Unit price</td><td>VAT</td><td>Total price</td></tr>" +
-                           "<tr><td>" + iname + "</td><td>" + size + "</td><td>" + quant + "</td><td>" + uprice + " " + cur + "</td><td>" + tax.Replace("%", "") + "</td><td>" + 
+                           "<tr><td>" + iname + "</td><td>" + size + "</td><td>" + quant + "</td><td>" + uprice + " " + cur + "</td><td>" + tax.Replace("%", "&percnt;") + "</td><td>" + 
                            (Convert.ToDouble(uprice) + Convert.ToDouble(uprice) * Convert.ToDouble(tax.Replace("%", ""))/100) * Convert.ToInt32(quant) + " " + cur + "</td></tr></table></html>", "text/html");
         }
         
