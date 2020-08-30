@@ -1,10 +1,15 @@
-﻿@{
+﻿@using System.Collections
+@{
     ViewData["Title"] = "Ultra Compta";
 }
+@model IEnumerable<string>
 
 <div class="text-center">
     <h1 class="display-4">Orders to process</h1>
     <ul style="list-style: none; margin-top:100px">
-        <li><a asp-action="GenerateInvoice" asp-route-orderReference="GDE948" target="_blank">Order GDE948</a></li>
+        @foreach (string file in Model)
+        {
+            <li><a asp-action="GenerateInvoice" asp-route-orderReference="@file" target="_blank">Order @file</a></li>
+        }
     </ul>
 </div>
