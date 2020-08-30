@@ -76,6 +76,7 @@ namespace UltraCompta.Web.Controllers
                            ((Convert.ToDouble(uprice2) + Convert.ToDouble(uprice2) * Convert.ToDouble(tax2.Replace("%", "")) / 100) * Convert.ToInt32(quant2)).ToString("F") + " " + cur2 + "</td></tr>";
             }
 
+            DatabaseConnection.StoreInvoice(invoice);
 
             return Content(invoice + "</table></html>", "text/html");
         }
