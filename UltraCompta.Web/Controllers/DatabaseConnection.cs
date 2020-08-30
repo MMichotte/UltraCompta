@@ -6,7 +6,7 @@ namespace UltraCompta.Web.Controllers
     {
         public static void StoreInvoice(string invoice)
         {
-            using (var connection = new SqliteConnection("Data Source=C:\\Dev\\UltraCompta\\Database\\UltraComptaInvoices.db"))
+            using (var connection = new SqliteConnection("Data Source=C:\\Dev\\UltraCompta\\Database\\UltraComptaInvoices.db;Mode=" + SqliteOpenMode.ReadWrite))
             {
                 connection.Open();
 
