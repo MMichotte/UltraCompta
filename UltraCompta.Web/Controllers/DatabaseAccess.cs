@@ -7,7 +7,7 @@ namespace UltraCompta.Web.Controllers
     {
         public static void StoreInvoice(string invoice)
         {
-            using (var connection = new SqliteConnection("Data Source=C:\\Dev\\UltraCompta\\Database\\UltraComptaInvoices.db;Mode=" + SqliteOpenMode.ReadWrite))
+            using (var connection = new SqliteConnection("Data Source=C:\\Temp\\UltraComptaInvoices.db;Mode=" + SqliteOpenMode.ReadWrite))
             {
                 connection.Open();
 
@@ -19,7 +19,7 @@ namespace UltraCompta.Web.Controllers
         }
         public static string GetCustomerCountry(string customerId)
         {
-            using (var connection = new SqliteConnection("Data Source=C:\\Dev\\UltraCompta\\Database\\UltraComptaInvoices.db;Mode=" + SqliteOpenMode.ReadWrite))
+            using (var connection = new SqliteConnection("Data Source=C:\\Temp\\UltraComptaInvoices.db;Mode=" + SqliteOpenMode.ReadWrite))
             {
                 connection.Open();
 
