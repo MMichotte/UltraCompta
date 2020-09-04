@@ -2,6 +2,7 @@
 
 namespace UltraCompta.Web.Controllers
 {
+    // THIS CLASS MAY NOT BE CHANGED!
     public static class DatabaseAccess
     {
         public static void StoreInvoice(string invoice)
