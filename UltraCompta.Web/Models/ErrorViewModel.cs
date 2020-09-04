@@ -1,5 +1,3 @@
-using System;
-
 namespace UltraCompta.Web.Models
 {
     public class ErrorViewModel
