@@ -70,9 +70,11 @@ namespace UltraCompta.Web.Controllers
                 invoice += " " + cur2 + "</td></tr>";
             }
 
+            invoice += "</table></html>";
+
             DatabaseAccess.StoreInvoice(invoice);
 
-            return Content(invoice + "</table></html>", "text/html");
+            return Content(invoice, "text/html");
         }
     }
 }
