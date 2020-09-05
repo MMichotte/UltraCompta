@@ -4,6 +4,6 @@ namespace UltraCompta.Tests
 {
     public class InvoiceCreation
     {
-
+        
     }
 }
