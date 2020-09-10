@@ -12,11 +12,13 @@ namespace UltraCompta.Web.Controllers
     {
         private IOrderSource _orderSource;
         private ICustomerSource _customerSource;
+        private IInvoiceStorage _invoiceStorage;
 
-        public HomeController(IOrderSource orderSource, ICustomerSource customerSource)
+        public HomeController(IOrderSource orderSource, ICustomerSource customerSource, IInvoiceStorage invoiceStorage)
         {
             _orderSource = orderSource;
             _customerSource = customerSource;
+            _invoiceStorage = invoiceStorage;
         }
 
         public IActionResult Index()
@@ -81,7 +83,7 @@ namespace UltraCompta.Web.Controllers
 
             invoice += "</table></html>";
 
-            InvoiceStorage.StoreInvoice(invoice);
+            _invoiceStorage.StoreInvoice(invoice);
 
             return Content(invoice, "text/html");
         }

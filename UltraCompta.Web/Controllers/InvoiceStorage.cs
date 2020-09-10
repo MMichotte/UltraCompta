@@ -1,8 +1,8 @@
 ﻿namespace UltraCompta.Web.Controllers
 {
-    public class InvoiceStorage
+    public class InvoiceStorage : IInvoiceStorage
     {
-        public static void StoreInvoice(string invoice)
+        public void StoreInvoice(string invoice)
         {
             DatabaseAccess.StoreInvoice(invoice);
         }
