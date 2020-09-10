@@ -12,11 +12,11 @@ namespace UltraCompta.Web.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ICreateOrder _createOrderCommand;
+        private readonly ICreateInvoice _createInvoiceCommand;
 
-        public HomeController(ICreateOrder createOrderCommand)
+        public HomeController(ICreateInvoice createInvoiceCommand)
         {
-            _createOrderCommand = createOrderCommand;
+            _createInvoiceCommand = createInvoiceCommand;
         }
 
         public IActionResult Index()
@@ -33,7 +33,7 @@ namespace UltraCompta.Web.Controllers
 
         public IActionResult GenerateInvoice(string orderReference)
         {
-            var invoice = _createOrderCommand.Generate(orderReference);
+            var invoice = _createInvoiceCommand.Generate(orderReference);
 
             return Content(invoice, "text/html");
         }

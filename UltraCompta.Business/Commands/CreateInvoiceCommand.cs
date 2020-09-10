@@ -4,13 +4,13 @@ using UltraCompta.Business.PrimaryPorts;
 
 namespace UltraCompta.Business.Commands
 {
-    public class CreateOrderCommand : ICreateOrder
+    public class CreateInvoiceCommand : ICreateInvoice
     {
         private IOrderSource _orderSource;
         private ICustomerSource _customerSource;
         private IInvoiceStorage _invoiceStorage;
 
-        public CreateOrderCommand(IOrderSource orderSource, ICustomerSource customerSource, IInvoiceStorage invoiceStorage)
+        public CreateInvoiceCommand(IOrderSource orderSource, ICustomerSource customerSource, IInvoiceStorage invoiceStorage)
         {
             _orderSource = orderSource;
             _customerSource = customerSource;

@@ -1,6 +1,6 @@
 ﻿namespace UltraCompta.Business.PrimaryPorts
 {
-    public interface ICreateOrder
+    public interface ICreateInvoice
     {
         string Generate(string orderReference);
     }
