@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using UltraCompta.Web.Controllers;
 
 namespace UltraCompta.Web
 {
@@ -19,6 +20,10 @@ namespace UltraCompta.Web
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+
+            services.AddTransient<IOrderSource, OrderSource>();
+            services.AddTransient<ICustomerSource, CustomerSource>();
+            services.AddTransient<IInvoiceStorage, InvoiceStorage>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
