@@ -1,4 +1,6 @@
-﻿namespace UltraCompta.Web.Controllers
+﻿using UltraCompta.Business;
+
+namespace UltraCompta.ExternalAdapters
 {
     public class CustomerSource : ICustomerSource
     {

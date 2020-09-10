@@ -1,4 +1,4 @@
-﻿namespace UltraCompta.Web.Controllers
+﻿namespace UltraCompta.Business
 {
     public interface IOrderSource
     {

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace UltraCompta.Web.Controllers
+namespace UltraCompta.Business
 {
     public class CreateOrderCommand
     {

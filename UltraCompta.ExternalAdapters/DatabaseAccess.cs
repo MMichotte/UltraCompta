@@ -1,6 +1,6 @@
 ﻿using Microsoft.Data.Sqlite;
 
-namespace UltraCompta.Web.Controllers
+namespace UltraCompta.ExternalAdapters
 {
     // THIS CLASS MAY NOT BE CHANGED!
     public static class DatabaseAccess

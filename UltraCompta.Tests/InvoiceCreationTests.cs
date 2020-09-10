@@ -1,4 +1,5 @@
 using FluentAssertions;
+using UltraCompta.ExternalAdapters;
 using UltraCompta.Web.Controllers;
 using Xunit;
 

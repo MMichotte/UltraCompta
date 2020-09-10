@@ -1,3 +1,4 @@
+using UltraCompta.Business;
 using UltraCompta.Web.Controllers;
 
 namespace UltraCompta.Tests

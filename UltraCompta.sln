@@ -5,7 +5,19 @@ VisualStudioVersion = 16.0.30413.136
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UltraCompta.Web", "UltraCompta.Web\UltraCompta.Web.csproj", "{216310FB-450D-4145-9105-64703502B58A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UltraCompta.Tests", "UltraCompta.Tests\UltraCompta.Tests.csproj", "{613EBCCE-F27C-4A2F-8E2D-5624080E41E5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UltraCompta.Tests", "UltraCompta.Tests\UltraCompta.Tests.csproj", "{613EBCCE-F27C-4A2F-8E2D-5624080E41E5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UltraCompta.ExternalAdapters", "UltraCompta.ExternalAdapters\UltraCompta.ExternalAdapters.csproj", "{60690B58-631F-449A-BA30-9DD16368B2D0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UltraCompta.Business", "UltraCompta.Business\UltraCompta.Business.csproj", "{B88B8BD4-985A-4459-883D-4115D1F9E89E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Primary Adapters - Hosts", "1 - Primary Adapters - Hosts", "{29D334C2-5035-458F-A606-5C2819DF4269}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - External Adapters", "3 - External Adapters", "{7E69FAC4-D356-4835-AC2B-2D72DB270425}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Business", "2 - Business", "{F1817A04-D17A-4DB0-87EB-53B433562720}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{E0D7294D-9176-4DEB-8B95-2DA3E7A3F968}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,9 +33,23 @@ Global
 		{613EBCCE-F27C-4A2F-8E2D-5624080E41E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{613EBCCE-F27C-4A2F-8E2D-5624080E41E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{613EBCCE-F27C-4A2F-8E2D-5624080E41E5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{60690B58-631F-449A-BA30-9DD16368B2D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{60690B58-631F-449A-BA30-9DD16368B2D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{60690B58-631F-449A-BA30-9DD16368B2D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{60690B58-631F-449A-BA30-9DD16368B2D0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B88B8BD4-985A-4459-883D-4115D1F9E89E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B88B8BD4-985A-4459-883D-4115D1F9E89E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B88B8BD4-985A-4459-883D-4115D1F9E89E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B88B8BD4-985A-4459-883D-4115D1F9E89E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{216310FB-450D-4145-9105-64703502B58A} = {29D334C2-5035-458F-A606-5C2819DF4269}
+		{613EBCCE-F27C-4A2F-8E2D-5624080E41E5} = {E0D7294D-9176-4DEB-8B95-2DA3E7A3F968}
+		{60690B58-631F-449A-BA30-9DD16368B2D0} = {7E69FAC4-D356-4835-AC2B-2D72DB270425}
+		{B88B8BD4-985A-4459-883D-4115D1F9E89E} = {F1817A04-D17A-4DB0-87EB-53B433562720}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {BA3D3191-43A2-425D-A76B-DBA3790C1E1F}
