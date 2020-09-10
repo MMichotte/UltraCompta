@@ -10,6 +10,13 @@ namespace UltraCompta.Web.Controllers
 {
     public class HomeController : Controller
     {
+        private OrderSource _orderSource;
+
+        public HomeController(OrderSource orderSource)
+        {
+            _orderSource = orderSource;
+        }
+
         public IActionResult Index()
         {
             IEnumerable<string> files = Directory.EnumerateFiles("C:/Dev/UltraCompta/InputFiles/");
@@ -24,7 +31,7 @@ namespace UltraCompta.Web.Controllers
 
         public IActionResult GenerateInvoice(string orderReference)
         {
-            string input = OrderSource.GetOrder(orderReference);
+            string input = _orderSource.GetOrder(orderReference);
             string name = input.Split("\r\n")[1].Substring(8);
             string id = input.Split("\r\n")[2].Substring(11);
             var invoice = "<html><style>table {border: 1px solid black;} tr:first-of-type {font-weight:bold;} td { padding: 5px;}</style><h1>Invoice " + orderReference + "</h1><p>Client name: " + name + "</p><p>Client id: " + id + 
