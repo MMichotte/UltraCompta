@@ -4,6 +4,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using UltraCompta.Business;
+using UltraCompta.Business.Commands;
+using UltraCompta.Business.ExternalPorts;
+using UltraCompta.Business.PrimaryPorts;
 using UltraCompta.ExternalAdapters;
 using UltraCompta.Web.Controllers;
 

@@ -1,4 +1,5 @@
 ﻿using UltraCompta.Business;
+using UltraCompta.Business.ExternalPorts;
 
 namespace UltraCompta.ExternalAdapters
 {

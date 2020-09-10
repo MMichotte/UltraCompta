@@ -1,6 +1,8 @@
 ﻿using System;
+using UltraCompta.Business.ExternalPorts;
+using UltraCompta.Business.PrimaryPorts;
 
-namespace UltraCompta.Business
+namespace UltraCompta.Business.Commands
 {
     public class CreateOrderCommand : ICreateOrder
     {

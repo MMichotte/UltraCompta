@@ -1,4 +1,4 @@
-﻿namespace UltraCompta.Business
+﻿namespace UltraCompta.Business.PrimaryPorts
 {
     public interface ICreateOrder
     {

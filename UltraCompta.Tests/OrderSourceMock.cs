@@ -1,4 +1,5 @@
 using UltraCompta.Business;
+using UltraCompta.Business.ExternalPorts;
 using UltraCompta.Web.Controllers;
 
 namespace UltraCompta.Tests

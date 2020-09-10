@@ -1,5 +1,7 @@
 using FluentAssertions;
 using UltraCompta.Business;
+using UltraCompta.Business.Commands;
+using UltraCompta.Business.ExternalPorts;
 using UltraCompta.ExternalAdapters;
 using UltraCompta.Web.Controllers;
 using Xunit;
