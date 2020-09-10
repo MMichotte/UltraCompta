@@ -11,10 +11,12 @@ namespace UltraCompta.Web.Controllers
     public class HomeController : Controller
     {
         private IOrderSource _orderSource;
+        private ICustomerSource _customerSource;
 
-        public HomeController(IOrderSource orderSource)
+        public HomeController(IOrderSource orderSource, ICustomerSource customerSource)
         {
             _orderSource = orderSource;
+            _customerSource = customerSource;
         }
 
         public IActionResult Index()
@@ -53,7 +55,7 @@ namespace UltraCompta.Web.Controllers
 
             invoice += "<tr><td>" + iname + "</td><td>" + size + "</td><td>" + quant + "</td><td>" + uprice + " " + cur + "</td><td>" + tax.Replace("%", "&percnt;") + "</td><td>";
             var taxD = Convert.ToDouble(tax.Replace("%", ""));
-            invoice += ((Convert.ToDouble(uprice) + Convert.ToDouble(uprice) * (CustomerSource.GetCustomerCountry(id) == "BE" ? taxD : 0) / 100) * Convert.ToInt32(quant)).ToString("F");
+            invoice += ((Convert.ToDouble(uprice) + Convert.ToDouble(uprice) * (_customerSource.GetCustomerCountry(id) == "BE" ? taxD : 0) / 100) * Convert.ToInt32(quant)).ToString("F");
             invoice += " " + cur + "</td></tr>";
             
             if (input.Contains("Item name2"))
@@ -73,7 +75,7 @@ namespace UltraCompta.Web.Controllers
 
                 invoice += "<tr><td>" + iname2 + "</td><td>" + size2 + "</td><td>" + quant2 + "</td><td>" + uprice2 + " " + cur2 + "</td><td>" + tax2.Replace("%", "&percnt;") + "</td><td>";
                 var taxD2 = Convert.ToDouble(tax2.Replace("%", ""));
-                invoice += ((Convert.ToDouble(uprice2) + Convert.ToDouble(uprice2) * (CustomerSource.GetCustomerCountry(id) == "BE" ? taxD2 : 0) / 100) * Convert.ToInt32(quant2)).ToString("F");
+                invoice += ((Convert.ToDouble(uprice2) + Convert.ToDouble(uprice2) * (_customerSource.GetCustomerCountry(id) == "BE" ? taxD2 : 0) / 100) * Convert.ToInt32(quant2)).ToString("F");
                 invoice += " " + cur2 + "</td></tr>";
             }
 
