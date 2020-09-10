@@ -24,7 +24,7 @@ namespace UltraCompta.Web.Controllers
 
         public IActionResult GenerateInvoice(string orderReference)
         {
-            string input = System.IO.File.ReadAllText("C:/Dev/UltraCompta/InputFiles/" + orderReference + ".txt");
+            string input = GetOrder(orderReference);
             string name = input.Split("\r\n")[1].Substring(8);
             string id = input.Split("\r\n")[2].Substring(11);
             var invoice = "<html><style>table {border: 1px solid black;} tr:first-of-type {font-weight:bold;} td { padding: 5px;}</style><h1>Invoice " + orderReference + "</h1><p>Client name: " + name + "</p><p>Client id: " + id + 
@@ -46,7 +46,7 @@ namespace UltraCompta.Web.Controllers
 
             invoice += "<tr><td>" + iname + "</td><td>" + size + "</td><td>" + quant + "</td><td>" + uprice + " " + cur + "</td><td>" + tax.Replace("%", "&percnt;") + "</td><td>";
             var taxD = Convert.ToDouble(tax.Replace("%", ""));
-            invoice += ((Convert.ToDouble(uprice) + Convert.ToDouble(uprice) * (DatabaseAccess.GetCustomerCountry(id) == "BE" ? taxD : 0) / 100) * Convert.ToInt32(quant)).ToString("F");
+            invoice += ((Convert.ToDouble(uprice) + Convert.ToDouble(uprice) * (GetCustomerCountry(id) == "BE" ? taxD : 0) / 100) * Convert.ToInt32(quant)).ToString("F");
             invoice += " " + cur + "</td></tr>";
             
             if (input.Contains("Item name2"))
@@ -66,15 +66,30 @@ namespace UltraCompta.Web.Controllers
 
                 invoice += "<tr><td>" + iname2 + "</td><td>" + size2 + "</td><td>" + quant2 + "</td><td>" + uprice2 + " " + cur2 + "</td><td>" + tax2.Replace("%", "&percnt;") + "</td><td>";
                 var taxD2 = Convert.ToDouble(tax2.Replace("%", ""));
-                invoice += ((Convert.ToDouble(uprice2) + Convert.ToDouble(uprice2) * (DatabaseAccess.GetCustomerCountry(id) == "BE" ? taxD2 : 0) / 100) * Convert.ToInt32(quant2)).ToString("F");
+                invoice += ((Convert.ToDouble(uprice2) + Convert.ToDouble(uprice2) * (GetCustomerCountry(id) == "BE" ? taxD2 : 0) / 100) * Convert.ToInt32(quant2)).ToString("F");
                 invoice += " " + cur2 + "</td></tr>";
             }
 
             invoice += "</table></html>";
 
-            DatabaseAccess.StoreInvoice(invoice);
+            StoreInvoice(invoice);
 
             return Content(invoice, "text/html");
+        }
+
+        private static void StoreInvoice(string invoice)
+        {
+            DatabaseAccess.StoreInvoice(invoice);
+        }
+
+        private static string GetCustomerCountry(string id)
+        {
+            return DatabaseAccess.GetCustomerCountry(id);
+        }
+
+        private static string GetOrder(string orderReference)
+        {
+            return System.IO.File.ReadAllText("C:/Dev/UltraCompta/InputFiles/" + orderReference + ".txt");
         }
     }
 }
