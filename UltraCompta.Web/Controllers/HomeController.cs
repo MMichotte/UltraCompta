@@ -10,9 +10,9 @@ namespace UltraCompta.Web.Controllers
 {
     public class HomeController : Controller
     {
-        private OrderSource _orderSource;
+        private IOrderSource _orderSource;
 
-        public HomeController(OrderSource orderSource)
+        public HomeController(IOrderSource orderSource)
         {
             _orderSource = orderSource;
         }
