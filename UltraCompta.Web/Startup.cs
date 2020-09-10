@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using UltraCompta.Business;
+using UltraCompta.ExternalAdapters;
 using UltraCompta.Web.Controllers;
 
 namespace UltraCompta.Web
