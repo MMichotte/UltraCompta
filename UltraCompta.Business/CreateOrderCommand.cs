@@ -2,7 +2,7 @@
 
 namespace UltraCompta.Business
 {
-    public class CreateOrderCommand
+    public class CreateOrderCommand : ICreateOrder
     {
         private IOrderSource _orderSource;
         private ICustomerSource _customerSource;

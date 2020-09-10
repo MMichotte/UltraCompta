@@ -1,4 +1,5 @@
 using FluentAssertions;
+using UltraCompta.Business;
 using UltraCompta.ExternalAdapters;
 using UltraCompta.Web.Controllers;
 using Xunit;
@@ -10,7 +11,10 @@ namespace UltraCompta.Tests
         [Fact]
         public void Generate_invoice()
         {
-            var controller = new HomeController(new OrderSourceMock(), new CustomerSourceMock(), new InvoiceStorageMock());
+            IOrderSource orderSource = new OrderSourceMock();
+            ICustomerSource customerSource = new CustomerSourceMock();
+            IInvoiceStorage invoiceStorage = new InvoiceStorageMock();
+            var controller = new HomeController(new CreateOrderCommand(orderSource, customerSource, invoiceStorage));
 
             var invoice = controller.GenerateInvoice("GDE948").Response();
 
@@ -20,7 +24,10 @@ namespace UltraCompta.Tests
         [Fact]
         public void Generate_invoice_with_two_items()
         {
-            var controller = new HomeController(new OrderSourceMock(), new CustomerSourceMock(), new InvoiceStorage());
+            IOrderSource orderSource = new OrderSourceMock();
+            ICustomerSource customerSource = new CustomerSourceMock();
+            IInvoiceStorage invoiceStorage = new InvoiceStorage();
+            var controller = new HomeController(new CreateOrderCommand(orderSource, customerSource, invoiceStorage));
 
             var invoice = controller.GenerateInvoice("GDE949").Response();
 
@@ -30,7 +37,10 @@ namespace UltraCompta.Tests
         [Fact]
         public void Generate_invoice_with_a_Belgian_customer()
         {
-            var controller = new HomeController(new OrderSourceMock(), new CustomerSourceMock(), new InvoiceStorage());
+            IOrderSource orderSource = new OrderSourceMock();
+            ICustomerSource customerSource = new CustomerSourceMock();
+            IInvoiceStorage invoiceStorage = new InvoiceStorage();
+            var controller = new HomeController(new CreateOrderCommand(orderSource, customerSource, invoiceStorage));
 
             var invoice = controller.GenerateInvoice("GDE950").Response();
 

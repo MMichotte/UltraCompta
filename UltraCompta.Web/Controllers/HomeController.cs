@@ -11,11 +11,11 @@ namespace UltraCompta.Web.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly CreateOrderCommand _createOrderCommand;
+        private readonly ICreateOrder _createOrderCommand;
 
-        public HomeController(IOrderSource orderSource, ICustomerSource customerSource, IInvoiceStorage invoiceStorage)
+        public HomeController(ICreateOrder createOrderCommand)
         {
-            _createOrderCommand = new CreateOrderCommand(orderSource, customerSource, invoiceStorage);
+            _createOrderCommand = createOrderCommand;
         }
 
         public IActionResult Index()

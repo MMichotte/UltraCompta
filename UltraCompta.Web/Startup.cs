@@ -24,6 +24,8 @@ namespace UltraCompta.Web
             services.AddTransient<IOrderSource, OrderSource>();
             services.AddTransient<ICustomerSource, CustomerSource>();
             services.AddTransient<IInvoiceStorage, InvoiceStorage>();
+            
+            services.AddTransient<ICreateOrder, CreateOrderCommand>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
