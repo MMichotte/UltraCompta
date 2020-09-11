@@ -26,11 +26,7 @@ namespace UltraCompta.Web
         {
             services.AddControllersWithViews();
 
-            services.AddTransient<IOrderSource, OrderSource>();
-            services.AddTransient<ICustomerSource, CustomerSource>();
-            services.AddTransient<IInvoiceStorage, InvoiceStorage>();
-            
-            services.AddTransient<ICreateInvoice, CreateInvoiceCommand>();
+            services.UseCompositionRootInsteadOfIocContainer();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
