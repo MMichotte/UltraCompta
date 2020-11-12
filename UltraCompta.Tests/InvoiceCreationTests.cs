@@ -23,7 +23,7 @@ namespace UltraCompta.Tests
         [Fact]
         public void Generate_invoice_with_two_items()
         {
-            var controller = new HomeController(new CreateInvoiceCommand(new OrderSourceMock(), new CustomerSourceMock(), new InvoiceStorage()));
+            var controller = new HomeController(new CreateInvoiceCommand(new OrderSourceMock(), new CustomerSourceMock(), new InvoiceStorageMock()));
 
             var invoice = controller.GenerateInvoice("GDE949").Response();
 
@@ -33,7 +33,7 @@ namespace UltraCompta.Tests
         [Fact]
         public void Generate_invoice_with_a_Belgian_customer()
         {
-            var controller = new HomeController(new CreateInvoiceCommand(new OrderSourceMock(), new CustomerSourceMock(), new InvoiceStorage()));
+            var controller = new HomeController(new CreateInvoiceCommand(new OrderSourceMock(), new CustomerSourceMock(), new InvoiceStorageMock()));
 
             var invoice = controller.GenerateInvoice("GDE950").Response();
 
