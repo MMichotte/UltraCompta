@@ -13,10 +13,7 @@ namespace UltraCompta.Tests
         [Fact]
         public void Generate_invoice()
         {
-            IOrderSource orderSource = new OrderSourceMock();
-            ICustomerSource customerSource = new CustomerSourceMock();
-            IInvoiceStorage invoiceStorage = new InvoiceStorageMock();
-            var controller = new HomeController(new CreateInvoiceCommand(orderSource, customerSource, invoiceStorage));
+            var controller = new HomeController(new CreateInvoiceCommand(new OrderSourceMock(), new CustomerSourceMock(), new InvoiceStorageMock()));
 
             var invoice = controller.GenerateInvoice("GDE948").Response();
 
@@ -26,10 +23,7 @@ namespace UltraCompta.Tests
         [Fact]
         public void Generate_invoice_with_two_items()
         {
-            IOrderSource orderSource = new OrderSourceMock();
-            ICustomerSource customerSource = new CustomerSourceMock();
-            IInvoiceStorage invoiceStorage = new InvoiceStorage();
-            var controller = new HomeController(new CreateInvoiceCommand(orderSource, customerSource, invoiceStorage));
+            var controller = new HomeController(new CreateInvoiceCommand(new OrderSourceMock(), new CustomerSourceMock(), new InvoiceStorage()));
 
             var invoice = controller.GenerateInvoice("GDE949").Response();
 
@@ -39,10 +33,7 @@ namespace UltraCompta.Tests
         [Fact]
         public void Generate_invoice_with_a_Belgian_customer()
         {
-            IOrderSource orderSource = new OrderSourceMock();
-            ICustomerSource customerSource = new CustomerSourceMock();
-            IInvoiceStorage invoiceStorage = new InvoiceStorage();
-            var controller = new HomeController(new CreateInvoiceCommand(orderSource, customerSource, invoiceStorage));
+            var controller = new HomeController(new CreateInvoiceCommand(new OrderSourceMock(), new CustomerSourceMock(), new InvoiceStorage()));
 
             var invoice = controller.GenerateInvoice("GDE950").Response();
 
